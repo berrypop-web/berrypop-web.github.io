@@ -1,12 +1,40 @@
 ---
-title: Hello!
-
+title: Lise Gong
+about:
+  template: solana
 ---
 
 ![](images/profile.jpg){width=250px}
 
-Hello! My name is Lise. I was born in Montreal and grew up in Irvine, California. I'm so excited to embark on this data science journey. I am passionate about animal welfare and have fostered over 60 cats for the Montreal SPCA. I'm a novice baker, a book-lover, and tennis veteran. 
+Hello! My name is Lise. I was born in Montreal and grew up in Irvine, California. I'm currently completing my Master's in Data Science at UBC. I am passionate about animal welfare and have fostered over 60 cats for the Montreal SPCA. I'm a novice baker, a book-lover, and an avid tennis player. 
 
-As I navigate the frigid waters of Github repos and the dark chasms of terminal windows, I hope to end block 1 with the confidence to diagnose and troubleshoot programming and development environment problems, and be able to articulate how such problems can be avoided. 
+## Education
+
+Concordia University, Montreal | Montreal, Canada
+B.S.c in Biology | 2018-2024
+
+University of British Columbia | Vancouver, Canada
+Master's of Data Science
+
+## Experience
+
+Outlier AI | Data Annotator | December 2025 - April 2026
+
+Veterinary Assistant - Main Street Animal Hospital | June - August 2026
+
+
+## Certifications
+
+Google Data Analytics Certificate 
+
+Stanford Data Ocean Bioinformatics Certificate
+
+## Languages
+
+Python
+R programming
+SQL
+
+I can also speak Mandarin, French, and English.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

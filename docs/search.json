@@ -1,16 +1,58 @@
 [
   {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nLise Gong\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lise Gong",
+    "section": "",
+    "text": "Hello! My name is Lise. I was born in Montreal and grew up in Irvine, California. I’m currently completing my Master’s in Data Science at UBC. I am passionate about animal welfare and have fostered over 60 cats for the Montreal SPCA. I’m a novice baker, a book-lover, and an avid tennis player."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Lise Gong",
+    "section": "Education",
+    "text": "Education\nConcordia University, Montreal | Montreal, Canada B.S.c in Biology | 2018-2024\nUniversity of British Columbia | Vancouver, Canada Master’s of Data Science"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Lise Gong",
+    "section": "Experience",
+    "text": "Experience\nOutlier AI | Data Annotator | December 2025 - April 2026\nVeterinary Assistant - Main Street Animal Hospital | June - August 2026"
+  },
+  {
+    "objectID": "index.html#certifications",
+    "href": "index.html#certifications",
+    "title": "Lise Gong",
+    "section": "Certifications",
+    "text": "Certifications\nGoogle Data Analytics Certificate\nStanford Data Ocean Bioinformatics Certificate"
+  },
+  {
+    "objectID": "index.html#languages",
+    "href": "index.html#languages",
+    "title": "Lise Gong",
+    "section": "Languages",
+    "text": "Languages\nPython R programming SQL\nI can also speak Mandarin, French, and English.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "Orientation day in beautiful Vancouver.\n\n\nMy first day of orientation was a whirlwind of both excitement and nervousness."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "About this site"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hello!",
-    "section": "",
-    "text": "Hello! My name is Lise. I was born in Montreal and grew up in Irvine, California. I’m so excited to embark on this data science journey. I am passionate about animal welfare and have fostered over 60 cats for the Montreal SPCA. I’m a novice baker, a book-lover, and tennis veteran.\nAs I navigate the frigid waters of Github repos and the dark chasms of terminal windows, I hope to end block 1 with the confidence to diagnose and troubleshoot programming and development environment problems, and be able to articulate how such problems can be avoided.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]
