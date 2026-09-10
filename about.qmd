@@ -1,6 +1,12 @@
 ---
 title: "About"
 ---
+![](images/rainbow.png)
 
+Prior to the MDS program, I pursued a career in veterinary science — working as a dog-walker, pet-sitter, animal-welfare officer at the SPCA, then as a veterinary assistant at the Bureau Veterinaire Express in Montreal and Main Street Animal Hospital in North Vancouver. In undergrad, my first biostatistics course gave me my first real experience with R — and with it, a piqued interest in data science. My time in animal healthcare had already exposed me to  the messy, high-stakes data that healthcare and life sciences generate, so after graduation I worked briefly as a Data Annotator for Outlier AI and completed the Google Data Analytics Certificate, two experiences that solidified my decision to pursue data science as a career. 
+
+I don't come from a traditional tech background, but I've come to see data science as one of the clearest paths to real impact in healthcare — using data to catch patterns earlier, personalize treatment, and make better decisions faster. Through UBC's MDS program, I'm looking forward to building a rigorous foundation in machine learning, statistical modeling, neural networks, and probability theory. Longer-term, I hope to work at the intersection of data science and healthcare, building predictive models for precision medicine and disease analytics.
+
+Outside the roadmap to becoming a Data Scientist, I enjoy a myriad of hobbies. My longest-standing love is playing tennis, which I've played for over 10 years now. My love language is making food for my family and friends, since baking for myself always feels more self-serving. Reading is one of my favorite pastimes (when I find the time!); I'm drawn to literary fiction that explores identity and isolation, and I'm currently reading "The Goldfinch" by Donna Tartt. 
 
 About this site

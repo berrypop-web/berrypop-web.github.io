@@ -4,21 +4,21 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nLise Gong\n\n\n\n\n\nNo matching items"
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nLise Gong\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Lise Gong",
     "section": "",
-    "text": "Hello! My name is Lise. I was born in Montreal and grew up in Irvine, California. I’m currently completing my Master’s in Data Science at UBC. I am passionate about animal welfare and have fostered over 60 cats for the Montreal SPCA. I’m a novice baker, a book-lover, and an avid tennis player."
+    "text": "Hello! My name is Lise., I was born in Montreal and grew up in Irvine, California. I’m just starting my Master’s in Data Science at UBC this fall in the year 2026. I hold a B.S.c. in Biology from Concordia University, and previously worked in veterinary care and AI data annotation. Outside data science, I’m passionate about animal welfare — I’ve fostered over 60 cats for the Montreal SPCA — and I’m a novice baker, a book-lover, and an avid tennis player."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Lise Gong",
     "section": "Education",
-    "text": "Education\nConcordia University, Montreal | Montreal, Canada B.S.c in Biology | 2018-2024\nUniversity of British Columbia | Vancouver, Canada Master’s of Data Science"
+    "text": "Education\nConcordia University, Montreal | Montreal, Canada B.S.c in Biology | 2018-2024\nUniversity of British Columbia | Vancouver, Canada Master’s of Data Science | 2026-2027"
   },
   {
     "objectID": "index.html#experience",
@@ -35,24 +35,31 @@
     "text": "Certifications\nGoogle Data Analytics Certificate\nStanford Data Ocean Bioinformatics Certificate"
   },
   {
+    "objectID": "index.html#technical-skills",
+    "href": "index.html#technical-skills",
+    "title": "Lise Gong",
+    "section": "Technical Skills",
+    "text": "Technical Skills\nPython R programming SQL"
+  },
+  {
     "objectID": "index.html#languages",
     "href": "index.html#languages",
     "title": "Lise Gong",
     "section": "Languages",
-    "text": "Languages\nPython R programming SQL\nI can also speak Mandarin, French, and English.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Languages\nMandarin, French, and English.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "posts/first-weeks/index.html",
     "href": "posts/first-weeks/index.html",
     "title": "My first weeks in MDS",
     "section": "",
-    "text": "Orientation day in beautiful Vancouver.\n\n\nMy first day of orientation was a whirlwind of both excitement and nervousness."
+    "text": "Orientation day in beautiful Vancouver.\n\n\nWeek 1 ✅\nMy first day of orientation was a whirlwind of both excitement and nervousness. Sitting down at my assigned table, I found myself between two people who’d previously worked as software engineers — and immediately felt like a small fish in a very big pond. Between program deliverables, course schedules, and constant reminders about how fast-paced this program is, I could feel the gears in my mind working overtime just to keep up.\nThe first week of classes didn’t slow things down much. DSCI 523 (R Programming) and DSCI 511 (Python Programming) felt manageable, but I hit a wall with the statistics and GitHub components of 521 — the last time I’d properly touched statistics was AP Stats my senior year of high school, back in 2018. I’ve since learned that undergrad biostatistics from six years ago doesn’t count for as much as I’d hoped.\nWhat surprised me most wasn’t the workload itself, but how fast my confidence eroded once I actually sat down to do the work — labs and worksheets that felt straightforward in lecture took me right up to the deadline. Between the pace and the constant reminders to also rest and take care of myself, week one has been a genuine exercise in learning to stay afloat."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Prior to the MDS program, I pursued a career in veterinary science — working as a dog-walker, pet-sitter, animal-welfare officer at the SPCA, then as a veterinary assistant at the Bureau Veterinaire Express in Montreal and Main Street Animal Hospital in North Vancouver. In undergrad, my first biostatistics course gave me my first real experience with R — and with it, a piqued interest in data science. My time in animal healthcare had already exposed me to the messy, high-stakes data that healthcare and life sciences generate, so after graduation I worked briefly as a Data Annotator for Outlier AI and completed the Google Data Analytics Certificate, two experiences that solidified my decision to pursue data science as a career.\nI don’t come from a traditional tech background, but I’ve come to see data science as one of the clearest paths to real impact in healthcare — using data to catch patterns earlier, personalize treatment, and make better decisions faster. Through UBC’s MDS program, I’m looking forward to building a rigorous foundation in machine learning, statistical modeling, neural networks, and probability theory. Longer-term, I hope to work at the intersection of data science and healthcare, building predictive models for precision medicine and disease analytics.\nOutside the roadmap to becoming a Data Scientist, I enjoy a myriad of hobbies. My longest-standing love is playing tennis, which I’ve played for over 10 years now. My love language is making food for my family and friends, since baking for myself always feels more self-serving. Reading is one of my favorite pastimes (when I find the time!); I’m drawn to literary fiction that explores identity and isolation, and I’m currently reading “The Goldfinch” by Donna Tartt.\nAbout this site"
   }
 ]

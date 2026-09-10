@@ -6,7 +6,7 @@ about:
 
 ![](images/profile.jpg){width=250px}
 
-Hello! My name is Lise. I was born in Montreal and grew up in Irvine, California. I'm currently completing my Master's in Data Science at UBC. I am passionate about animal welfare and have fostered over 60 cats for the Montreal SPCA. I'm a novice baker, a book-lover, and an avid tennis player. 
+Hello! My name is Lise., I was born in Montreal and grew up in Irvine, California. I'm just starting my Master's in Data Science at UBC this fall in the year 2026. I hold a B.S.c. in Biology from Concordia University, and previously worked in veterinary care and AI data annotation. Outside data science, I'm passionate about animal welfare — I've fostered over 60 cats for the Montreal SPCA — and I'm a novice baker, a book-lover, and an avid tennis player. 
 
 ## Education
 
@@ -14,7 +14,7 @@ Concordia University, Montreal | Montreal, Canada
 B.S.c in Biology | 2018-2024
 
 University of British Columbia | Vancouver, Canada
-Master's of Data Science
+Master's of Data Science | 2026-2027
 
 ## Experience
 
@@ -29,12 +29,14 @@ Google Data Analytics Certificate
 
 Stanford Data Ocean Bioinformatics Certificate
 
-## Languages
+## Technical Skills
 
 Python
 R programming
 SQL
 
-I can also speak Mandarin, French, and English.
+## Languages
+
+Mandarin, French, and English.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
