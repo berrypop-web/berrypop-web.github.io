@@ -2,6 +2,8 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/breast-cancer-r/index.html",
+      "/posts/breast-cancer-python/index.html",
       "/posts/first-weeks/index.html"
     ]
   }

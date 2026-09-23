@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nLise Gong\n\n\n\n\n\nNo matching items"
+    "text": "Breast Cancer Classification in R\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nLise Gong\n\n\n\n\n\n\n\n\n\n\n\n\nBreast Cancer Classification in Python\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nLise Gong\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 9, 2026\n\n\nLise Gong\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -54,6 +54,34 @@
     "title": "My first weeks in MDS",
     "section": "",
     "text": "Orientation day in beautiful Vancouver.\n\n\nWeek 1 ✅\nMy first day of orientation was a whirlwind of both excitement and nervousness. Sitting down at my assigned table, I found myself between two people who’d previously worked as software engineers — and immediately felt like a small fish in a very big pond. Between program deliverables, course schedules, and constant reminders about how fast-paced this program is, I could feel the gears in my mind working overtime just to keep up.\nThe first week of classes didn’t slow things down much. DSCI 523 (R Programming) and DSCI 511 (Python Programming) felt manageable, but I hit a wall with the statistics and GitHub components of 521 — the last time I’d properly touched statistics was AP Stats my senior year of high school, back in 2018. I’ve since learned that undergrad biostatistics from six years ago doesn’t count for as much as I’d hoped.\nWhat surprised me most wasn’t the workload itself, but how fast my confidence eroded once I actually sat down to do the work — labs and worksheets that felt straightforward in lecture took me right up to the deadline. Between the pace and the constant reminders to also rest and take care of myself, week one has been a genuine exercise in learning to stay afloat."
+  },
+  {
+    "objectID": "posts/breast-cancer-python/index.html",
+    "href": "posts/breast-cancer-python/index.html",
+    "title": "Breast Cancer Classification in Python",
+    "section": "",
+    "text": "This blog post uses the Breast Cancer Wisconsin (Diagnostic) from the UCI Machine Learning Repository. (CC BY 4.0).\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"
+  },
+  {
+    "objectID": "posts/breast-cancer-python/index.html#milestone-3-python-post",
+    "href": "posts/breast-cancer-python/index.html#milestone-3-python-post",
+    "title": "Breast Cancer Classification in Python",
+    "section": "",
+    "text": "This blog post uses the Breast Cancer Wisconsin (Diagnostic) from the UCI Machine Learning Repository. (CC BY 4.0).\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"
+  },
+  {
+    "objectID": "posts/breast-cancer-python/index.html#what-i-did",
+    "href": "posts/breast-cancer-python/index.html#what-i-did",
+    "title": "Breast Cancer Classification in Python",
+    "section": "What I Did",
+    "text": "What I Did\nLet’s take a look at our data by loading the dataset through scikit-learn’s load_breast_cancer(). Each row is a tumor sample described by measurements of its cell nuclei. I load the data into a pandas DataFrame and label each sample as malignant or benign.\n\nbc = load_breast_cancer(as_frame=True)\n# rename to df for easier referencing\ndf = bc.frame\n# 'target' is the diagnosis of each sample, 1 for benign and 0 for malignant\n# We pair each name with its position using enumerate(), turn the pairs \n# into a lookup table with dict(), then use map() to replace each value.\ndf[\"diagnosis\"] = df[\"target\"].map(dict(enumerate(bc.target_names)))\n\nFirst, I count the samples in each group and compare their average nucleus radius.\n\ndisplay(df[\"diagnosis\"].value_counts())\ndisplay(df.groupby(\"diagnosis\")[\"mean radius\"].mean())\ndf.head()\n\ndiagnosis\nbenign       357\nmalignant    212\nName: count, dtype: int64\n\n\ndiagnosis\nbenign       12.146524\nmalignant    17.462830\nName: mean radius, dtype: float64\n\n\n\n\n\n\n\n\n\nmean radius\nmean texture\nmean perimeter\nmean area\nmean smoothness\nmean compactness\nmean concavity\nmean concave points\nmean symmetry\nmean fractal dimension\n...\nworst perimeter\nworst area\nworst smoothness\nworst compactness\nworst concavity\nworst concave points\nworst symmetry\nworst fractal dimension\ntarget\ndiagnosis\n\n\n\n\n0\n17.99\n10.38\n122.80\n1001.0\n0.11840\n0.27760\n0.3001\n0.14710\n0.2419\n0.07871\n...\n184.60\n2019.0\n0.1622\n0.6656\n0.7119\n0.2654\n0.4601\n0.11890\n0\nmalignant\n\n\n1\n20.57\n17.77\n132.90\n1326.0\n0.08474\n0.07864\n0.0869\n0.07017\n0.1812\n0.05667\n...\n158.80\n1956.0\n0.1238\n0.1866\n0.2416\n0.1860\n0.2750\n0.08902\n0\nmalignant\n\n\n2\n19.69\n21.25\n130.00\n1203.0\n0.10960\n0.15990\n0.1974\n0.12790\n0.2069\n0.05999\n...\n152.50\n1709.0\n0.1444\n0.4245\n0.4504\n0.2430\n0.3613\n0.08758\n0\nmalignant\n\n\n3\n11.42\n20.38\n77.58\n386.1\n0.14250\n0.28390\n0.2414\n0.10520\n0.2597\n0.09744\n...\n98.87\n567.7\n0.2098\n0.8663\n0.6869\n0.2575\n0.6638\n0.17300\n0\nmalignant\n\n\n4\n20.29\n14.34\n135.10\n1297.0\n0.10030\n0.13280\n0.1980\n0.10430\n0.1809\n0.05883\n...\n152.20\n1575.0\n0.1374\n0.2050\n0.4000\n0.1625\n0.2364\n0.07678\n0\nmalignant\n\n\n\n\n5 rows × 32 columns\n\n\n\nNext, I plot the distribution of mean radius for each diagnosis. Each box covers the middle 50% of samples, with a line at the median.\n\nalt.Chart(df).mark_boxplot().encode(\n    x=alt.X(\"diagnosis:N\", title=\"Diagnosis\"),\n    y=alt.Y(\"mean radius:Q\", title=\"Mean radius\"),\n    color=\"diagnosis:N\"\n).properties(\n    title=\"Mean tumour radius by diagnosis\"\n)\n\n\n\n\n\n\n\n\n\nFigure 1: Distribution of mean nucleus radius by diagnosis"
+  },
+  {
+    "objectID": "posts/breast-cancer-python/index.html#what-i-found",
+    "href": "posts/breast-cancer-python/index.html#what-i-found",
+    "title": "Breast Cancer Classification in Python",
+    "section": "What I Found",
+    "text": "What I Found\nThe dataset contains 357 benign and 212 malignant samples. Malignant samples have a mean radius of about 17, compared with about 12 benign samples. The boxplot shows the same pattern: the malignant box sits clearly above the benign one, with only a little overlap. This suggests nucleus size is a strong indicator of diagnosis, although not a perfect correlation, since some samples fall in the range where the two groups overlap."
   },
   {
     "objectID": "about.html",

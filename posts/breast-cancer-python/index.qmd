@@ -1,0 +1,59 @@
+---
+title: "Breast Cancer Classification in Python"
+date: 2026-09-22
+jupyter: python3
+author: Lise Gong
+---
+## Milestone 3 Python Post
+
+This blog post uses the [Breast Cancer Wisconsin (Diagnostic)](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) from the **UCI Machine Learning Repository**. (CC BY 4.0).
+
+```{python}
+#| label: setup
+#| message: false
+#| warning: false
+import altair as alt
+import pandas as pd
+from IPython.display import display
+from sklearn.datasets import load_breast_cancer
+```
+
+## What I Did
+
+Let's take a look at our data by loading the dataset through scikit-learn's `load_breast_cancer()`. Each row is a tumor sample described by measurements of its cell nuclei. I load the data into a pandas DataFrame and label each sample as malignant or benign.
+
+```{python}
+bc = load_breast_cancer(as_frame=True)
+# rename to df for easier referencing
+df = bc.frame
+# 'target' is the diagnosis of each sample, 1 for benign and 0 for malignant
+# We pair each name with its position using enumerate(), turn the pairs 
+# into a lookup table with dict(), then use map() to replace each value.
+df["diagnosis"] = df["target"].map(dict(enumerate(bc.target_names)))
+```
+
+First, I count the samples in each group and compare their average nucleus radius.
+
+```{python}
+display(df["diagnosis"].value_counts())
+display(df.groupby("diagnosis")["mean radius"].mean())
+df.head()
+```
+
+Next, I plot the distribution of mean radius for each diagnosis. Each box covers the middle 50% of samples, with a line at the median. 
+
+```{python}
+#| label: fig-radius-diagnosis
+#| fig-cap: "Distribution of mean nucleus radius by diagnosis"
+alt.Chart(df).mark_boxplot().encode(
+    x=alt.X("diagnosis:N", title="Diagnosis"),
+    y=alt.Y("mean radius:Q", title="Mean radius"),
+    color="diagnosis:N"
+).properties(
+    title="Mean tumour radius by diagnosis"
+)
+```
+
+## What I Found
+
+The dataset contains 357 benign and 212 malignant samples. Malignant samples have a mean radius of about 17, compared with about 12 benign samples. The boxplot shows the same pattern: the malignant box sits clearly above the benign one, with only a little overlap. This suggests nucleus size is a strong indicator of diagnosis, although not a perfect correlation, since some samples fall in the range where the two groups overlap.
