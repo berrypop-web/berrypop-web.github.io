@@ -1,10 +1,9 @@
 ---
 title: Lise Gong
+image: images/profile.jpg
 about:
-  template: solana
+  template: trestles
 ---
-
-![](images/profile.jpg){width=250px}
 
 Hello! My name is Lise., I was born in Montreal and grew up in Irvine, California. I'm just starting my Master's in Data Science at UBC this fall in the year 2026. I hold a B.S.c. in Biology from Concordia University, and previously worked in veterinary care and AI data annotation. Outside data science, I'm passionate about animal welfare — I've fostered over 60 cats for the Montreal SPCA — and I'm a novice baker, a book-lover, and an avid tennis player. 
 
@@ -39,4 +38,7 @@ SQL
 
 Mandarin, French, and English.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# Projects
+
+[Bellabeat Data Analysis](https://www.kaggle.com/code/lisegong/bellabeat-case-study-with-r)
+
