@@ -4,3 +4,54 @@ date: 2026-09-22
 author: Lise Gong
 ---
 
+## Data Source
+
+This blog uses the [Breast Cancer Wisconsin (Original)](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original) from the UCI Machine Learning Repository (CC BY 4.0), loaded through the `mlbench` R package. Each row is a tumor sample score from 1 to 10 on nine cell characteristics. 
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+library(mlbench)
+library(ggplot2)
+```
+
+## What I Did
+
+I start by loading the data and converting the cell size score to a number. `mlbench` stores the scores as factors, which R treats as categories rather than values.
+
+```{r}
+data(BreastCancer)
+bc <- BreastCancer
+# Scores are stored as factors; convert via character to get the real
+# values (as.numeric on a factor alone returns level positions).
+bc$Cell.size <- as.numeric(as.character(bc$Cell.size))
+head(bc)
+```
+
+First, I count the samples in each group and compare their average cell size score.
+
+```{r}
+table(bc$Class)
+aggregate(Cell.size ~ Class, data = bc, FUN = mean)
+```
+
+Next, I plot the distribution of cell size score for each diagnosis.
+Each box covers the middle 50% of samples, with a line at the median.
+
+```{r}
+#| label: fig-cell-size-diagnosis
+#| fig-cap: "Distribution of Cell Size Uniformity Score by Diagnosis."
+ggplot(bc, aes(x = Class, y = Cell.size, fill = Class)) +
+  geom_boxplot() +
+  labs(
+    title = "Cell size score by diagnosis",
+    x = "Diagnosis",
+    y = "Uniformity of cell size (1–10)"
+  )
+```
+
+## What I Found
+
+The dataset contains 458 benign and 241 malignant samples. Malignant samples have an average cell size score of about 6.6, compared with about 1.3 for benign samples. Most benign samples score exactly 1, so their box collapses into a flat line, with the less common higher scores shown as individual points. The boxplot shows the same pattern: the malignant box sits well above the benign one. This suggests cell size uniformity is a strong indicator of diagnosis, though not a perfect separator, since some malignant samples still score low.
+

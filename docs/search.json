@@ -49,6 +49,34 @@
     "text": "Languages\nMandarin, French, and English.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
+    "objectID": "posts/breast-cancer-r/index.html",
+    "href": "posts/breast-cancer-r/index.html",
+    "title": "Breast Cancer Classification in R",
+    "section": "",
+    "text": "This blog uses the Breast Cancer Wisconsin (Original) from the UCI Machine Learning Repository (CC BY 4.0), loaded through the mlbench R package. Each row is a tumor sample score from 1 to 10 on nine cell characteristics.\n\nlibrary(mlbench)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "posts/breast-cancer-r/index.html#data-source",
+    "href": "posts/breast-cancer-r/index.html#data-source",
+    "title": "Breast Cancer Classification in R",
+    "section": "",
+    "text": "This blog uses the Breast Cancer Wisconsin (Original) from the UCI Machine Learning Repository (CC BY 4.0), loaded through the mlbench R package. Each row is a tumor sample score from 1 to 10 on nine cell characteristics.\n\nlibrary(mlbench)\nlibrary(ggplot2)"
+  },
+  {
+    "objectID": "posts/breast-cancer-r/index.html#what-i-did",
+    "href": "posts/breast-cancer-r/index.html#what-i-did",
+    "title": "Breast Cancer Classification in R",
+    "section": "What I Did",
+    "text": "What I Did\nI start by loading the data and converting the cell size score to a number. mlbench stores the scores as factors, which R treats as categories rather than values.\n\ndata(BreastCancer)\nbc &lt;- BreastCancer\n# Scores are stored as factors; convert via character to get the real\n# values (as.numeric on a factor alone returns level positions).\nbc$Cell.size &lt;- as.numeric(as.character(bc$Cell.size))\nhead(bc)\n\n       Id Cl.thickness Cell.size Cell.shape Marg.adhesion Epith.c.size\n1 1000025            5         1          1             1            2\n2 1002945            5         4          4             5            7\n3 1015425            3         1          1             1            2\n4 1016277            6         8          8             1            3\n5 1017023            4         1          1             3            2\n6 1017122            8        10         10             8            7\n  Bare.nuclei Bl.cromatin Normal.nucleoli Mitoses     Class\n1           1           3               1       1    benign\n2          10           3               2       1    benign\n3           2           3               1       1    benign\n4           4           3               7       1    benign\n5           1           3               1       1    benign\n6          10           9               7       1 malignant\n\n\nFirst, I count the samples in each group and compare their average cell size score.\n\ntable(bc$Class)\n\n\n   benign malignant \n      458       241 \n\naggregate(Cell.size ~ Class, data = bc, FUN = mean)\n\n      Class Cell.size\n1    benign  1.325328\n2 malignant  6.572614\n\n\nNext, I plot the distribution of cell size score for each diagnosis. Each box covers the middle 50% of samples, with a line at the median.\n\nggplot(bc, aes(x = Class, y = Cell.size, fill = Class)) +\n  geom_boxplot() +\n  labs(\n    title = \"Cell size score by diagnosis\",\n    x = \"Diagnosis\",\n    y = \"Uniformity of cell size (1–10)\"\n  )\n\n\n\n\n\n\n\nFigure 1: Distribution of Cell Size Uniformity Score by Diagnosis."
+  },
+  {
+    "objectID": "posts/breast-cancer-r/index.html#what-i-found",
+    "href": "posts/breast-cancer-r/index.html#what-i-found",
+    "title": "Breast Cancer Classification in R",
+    "section": "What I Found",
+    "text": "What I Found\nThe dataset contains 458 benign and 241 malignant samples. Malignant samples have an average cell size score of about 6.6, compared with about 1.3 for benign samples. Most benign samples score exactly 1, so their box collapses into a flat line, with the less common higher scores shown as individual points. The boxplot shows the same pattern: the malignant box sits well above the benign one. This suggests cell size uniformity is a strong indicator of diagnosis, though not a perfect separator, since some malignant samples still score low."
+  },
+  {
     "objectID": "posts/first-weeks/index.html",
     "href": "posts/first-weeks/index.html",
     "title": "My first weeks in MDS",
@@ -63,8 +91,8 @@
     "text": "This blog post uses the Breast Cancer Wisconsin (Diagnostic) from the UCI Machine Learning Repository. (CC BY 4.0).\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"
   },
   {
-    "objectID": "posts/breast-cancer-python/index.html#milestone-3-python-post",
-    "href": "posts/breast-cancer-python/index.html#milestone-3-python-post",
+    "objectID": "posts/breast-cancer-python/index.html#data-source",
+    "href": "posts/breast-cancer-python/index.html#data-source",
     "title": "Breast Cancer Classification in Python",
     "section": "",
     "text": "This blog post uses the Breast Cancer Wisconsin (Diagnostic) from the UCI Machine Learning Repository. (CC BY 4.0).\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"

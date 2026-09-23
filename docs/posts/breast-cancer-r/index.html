@@ -28,6 +28,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -120,8 +155,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link active" data-scroll-target="#data-source">Data Source</a></li>
+  <li><a href="#what-i-did" id="toc-what-i-did" class="nav-link" data-scroll-target="#what-i-did">What I Did</a></li>
+  <li><a href="#what-i-found" id="toc-what-i-found" class="nav-link" data-scroll-target="#what-i-found">What I Found</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -157,8 +200,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
+<p>This blog uses the <a href="https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original">Breast Cancer Wisconsin (Original)</a> from the UCI Machine Learning Repository (CC BY 4.0), loaded through the <code>mlbench</code> R package. Each row is a tumor sample score from 1 to 10 on nine cell characteristics.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="what-i-did" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-did">What I Did</h2>
+<p>I start by loading the data and converting the cell size score to a number. <code>mlbench</code> stores the scores as factors, which R treats as categories rather than values.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BreastCancer)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bc <span class="ot">&lt;-</span> BreastCancer</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scores are stored as factors; convert via character to get the real</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># values (as.numeric on a factor alone returns level positions).</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>bc<span class="sc">$</span>Cell.size <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(bc<span class="sc">$</span>Cell.size))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Id Cl.thickness Cell.size Cell.shape Marg.adhesion Epith.c.size
+1 1000025            5         1          1             1            2
+2 1002945            5         4          4             5            7
+3 1015425            3         1          1             1            2
+4 1016277            6         8          8             1            3
+5 1017023            4         1          1             3            2
+6 1017122            8        10         10             8            7
+  Bare.nuclei Bl.cromatin Normal.nucleoli Mitoses     Class
+1           1           3               1       1    benign
+2          10           3               2       1    benign
+3           2           3               1       1    benign
+4           4           3               7       1    benign
+5           1           3               1       1    benign
+6          10           9               7       1 malignant</code></pre>
+</div>
+</div>
+<p>First, I count the samples in each group and compare their average cell size score.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bc<span class="sc">$</span>Class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   benign malignant 
+      458       241 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(Cell.size <span class="sc">~</span> Class, <span class="at">data =</span> bc, <span class="at">FUN =</span> mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Class Cell.size
+1    benign  1.325328
+2 malignant  6.572614</code></pre>
+</div>
+</div>
+<p>Next, I plot the distribution of cell size score for each diagnosis. Each box covers the middle 50% of samples, with a line at the median.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bc, <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">y =</span> Cell.size, <span class="at">fill =</span> Class)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Cell size score by diagnosis"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Diagnosis"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Uniformity of cell size (1–10)"</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-cell-size-diagnosis" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cell-size-diagnosis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-cell-size-diagnosis-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cell-size-diagnosis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Distribution of Cell Size Uniformity Score by Diagnosis.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-i-found" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-found">What I Found</h2>
+<p>The dataset contains 458 benign and 241 malignant samples. Malignant samples have an average cell size score of about 6.6, compared with about 1.3 for benign samples. Most benign samples score exactly 1, so their box collapses into a flat line, with the less common higher scores shown as individual points. The boxplot shows the same pattern: the malignant box sits well above the benign one. This suggests cell size uniformity is a strong indicator of diagnosis, though not a perfect separator, since some malignant samples still score low.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

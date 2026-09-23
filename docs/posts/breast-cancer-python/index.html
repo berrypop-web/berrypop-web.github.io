@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#milestone-3-python-post" id="toc-milestone-3-python-post" class="nav-link active" data-scroll-target="#milestone-3-python-post">Milestone 3 Python Post</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link active" data-scroll-target="#data-source">Data Source</a></li>
   <li><a href="#what-i-did" id="toc-what-i-did" class="nav-link" data-scroll-target="#what-i-did">What I Did</a></li>
   <li><a href="#what-i-found" id="toc-what-i-found" class="nav-link" data-scroll-target="#what-i-found">What I Found</a></li>
   </ul>
@@ -203,8 +203,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="milestone-3-python-post" class="level2">
-<h2 class="anchored" data-anchor-id="milestone-3-python-post">Milestone 3 Python Post</h2>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
 <p>This blog post uses the <a href="https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic">Breast Cancer Wisconsin (Diagnostic)</a> from the <strong>UCI Machine Learning Repository</strong>. (CC BY 4.0).</p>
 <div id="setup" class="cell" data-message="false" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-i-did" class="level2">
 <h2 class="anchored" data-anchor-id="what-i-did">What I Did</h2>
 <p>Let’s take a look at our data by loading the dataset through scikit-learn’s <code>load_breast_cancer()</code>. Each row is a tumor sample described by measurements of its cell nuclei. I load the data into a pandas DataFrame and label each sample as malignant or benign.</p>
-<div id="017d3fc1" class="cell" data-execution_count="2">
+<div id="bda14412" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bc <span class="op">=</span> load_breast_cancer(as_frame<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rename to df for easier referencing</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> bc.frame</span>
@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"diagnosis"</span>] <span class="op">=</span> df[<span class="st">"target"</span>].<span class="bu">map</span>(<span class="bu">dict</span>(<span class="bu">enumerate</span>(bc.target_names)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>First, I count the samples in each group and compare their average nucleus radius.</p>
-<div id="9e3aa641" class="cell" data-execution_count="3">
+<div id="adeb5668" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>display(df[<span class="st">"diagnosis"</span>].value_counts())</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>display(df.groupby(<span class="st">"diagnosis"</span>)[<span class="st">"mean radius"</span>].mean())</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -415,23 +415,23 @@ Name: mean radius, dtype: float64</code></pre>
 <div aria-describedby="fig-radius-diagnosis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-4eeac769537a453094d7eee53e5fdc77.vega-embed {
+  #altair-viz-2e64833593e145669f3098cdc5dd72e4.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-4eeac769537a453094d7eee53e5fdc77.vega-embed details,
-  #altair-viz-4eeac769537a453094d7eee53e5fdc77.vega-embed details summary {
+  #altair-viz-2e64833593e145669f3098cdc5dd72e4.vega-embed details,
+  #altair-viz-2e64833593e145669f3098cdc5dd72e4.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-4eeac769537a453094d7eee53e5fdc77"></div>
+<div id="altair-viz-2e64833593e145669f3098cdc5dd72e4"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-4eeac769537a453094d7eee53e5fdc77") {
-      outputDiv = document.getElementById("altair-viz-4eeac769537a453094d7eee53e5fdc77");
+    if (outputDiv.id !== "altair-viz-2e64833593e145669f3098cdc5dd72e4") {
+      outputDiv = document.getElementById("altair-viz-2e64833593e145669f3098cdc5dd72e4");
     }
 
     const paths = {

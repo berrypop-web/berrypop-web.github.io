@@ -4,7 +4,7 @@ date: 2026-09-22
 jupyter: python3
 author: Lise Gong
 ---
-## Milestone 3 Python Post
+## Data Source
 
 This blog post uses the [Breast Cancer Wisconsin (Diagnostic)](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) from the **UCI Machine Learning Repository**. (CC BY 4.0).
 
