@@ -1,5 +1,3 @@
-------------------------------------------------------------------------
-
 # berrypop-web.github.io
 
 My personal website and blog, built with Quarto. It includes one personal blog post documenting my first week in MDS, and two computational posts analyzing breast cancer data: one in Python and one in R.
@@ -8,11 +6,11 @@ My personal website and blog, built with Quarto. It includes one personal blog p
 
 Install these first:
 
-- [Quarto](https://quarto.org/docs/get-started/) <version>
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) <version>
-- [R](https://cran.r-project.org/) <version>
+- [Quarto](https://quarto.org/docs/get-started/) 1.10.18
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) 0.12.7
+- [R](https://cran.r-project.org/) 4.6.1
 
-uv installs the pinned Python version (<version>) automatically, and renv installs itself the first time R starts in this project.
+uv installs the pinned Python version 3.14 automatically, and renv installs itself the first time R starts in this project.
 
 ## Build the site
 
@@ -43,9 +41,16 @@ If asked whether to proceed, type `y`.
    uv run quarto render
 ```
 
+Always render with `uv run` so Quarto uses the project's Python environment. If Python chunks use the wrong environment, delete the Quarto cache and render again:
+
+``` bash
+   rm -r .quarto
+   uv run quarto render
+```
+
 ## View the site
 
-The built site is written to `docs/`. Open it locally with:
+The built site is written to `docs/`. Open `docs/index.html` in any web browser. On macOS, you can also run:
 
 ``` bash
 open docs/index.html
