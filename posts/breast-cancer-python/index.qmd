@@ -8,9 +8,9 @@ image: thumbnail.png
 
 ## Data Source
 
-This blog post uses the [Breast Cancer Wisconsin (Diagnostic)](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) from the **UCI Machine Learning Repository**. (CC BY 4.0).
+This post uses the [Breast Cancer Wisconsin (Diagnostic)](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn's `load_breast_cancer()`.
 
-Citation APA Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) \[Dataset\]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B.
+Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C5DW2B>
 
 ```{python}
 #| label: setup

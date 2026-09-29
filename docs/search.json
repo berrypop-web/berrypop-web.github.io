@@ -53,14 +53,14 @@
     "href": "posts/breast-cancer-python/index.html",
     "title": "Breast Cancer Classification in Python",
     "section": "",
-    "text": "This blog post uses the Breast Cancer Wisconsin (Diagnostic) from the UCI Machine Learning Repository. (CC BY 4.0).\nCitation APA Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B.\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"
+    "text": "This post uses the Breast Cancer Wisconsin (Diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn’s load_breast_cancer().\nWolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"
   },
   {
     "objectID": "posts/breast-cancer-python/index.html#data-source",
     "href": "posts/breast-cancer-python/index.html#data-source",
     "title": "Breast Cancer Classification in Python",
     "section": "",
-    "text": "This blog post uses the Breast Cancer Wisconsin (Diagnostic) from the UCI Machine Learning Repository. (CC BY 4.0).\nCitation APA Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B.\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"
+    "text": "This post uses the Breast Cancer Wisconsin (Diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn’s load_breast_cancer().\nWolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B\n\nimport altair as alt\nimport pandas as pd\nfrom IPython.display import display\nfrom sklearn.datasets import load_breast_cancer"
   },
   {
     "objectID": "posts/breast-cancer-python/index.html#what-i-did",
@@ -88,14 +88,14 @@
     "href": "posts/breast-cancer-r/index.html",
     "title": "Breast Cancer Classification in R",
     "section": "",
-    "text": "This blog uses the Breast Cancer Wisconsin (Original) from the UCI Machine Learning Repository (CC BY 4.0), loaded through the mlbench R package. Each row is a tumor sample score from 1 to 10 on nine cell characteristics.\nAPA Citation: Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B.\n\nlibrary(mlbench)\nlibrary(ggplot2)"
+    "text": "This post uses the Breast Cancer Wisconsin (Original) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through the mlbench R package. Each row is a tumor sample, scored from 1 to 10 on nine cell characteristics.\nWolberg, W. (1990). Breast Cancer Wisconsin (Original) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5HP4Z\n\nlibrary(mlbench)\nlibrary(ggplot2)"
   },
   {
     "objectID": "posts/breast-cancer-r/index.html#data-source",
     "href": "posts/breast-cancer-r/index.html#data-source",
     "title": "Breast Cancer Classification in R",
     "section": "",
-    "text": "This blog uses the Breast Cancer Wisconsin (Original) from the UCI Machine Learning Repository (CC BY 4.0), loaded through the mlbench R package. Each row is a tumor sample score from 1 to 10 on nine cell characteristics.\nAPA Citation: Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B.\n\nlibrary(mlbench)\nlibrary(ggplot2)"
+    "text": "This post uses the Breast Cancer Wisconsin (Original) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through the mlbench R package. Each row is a tumor sample, scored from 1 to 10 on nine cell characteristics.\nWolberg, W. (1990). Breast Cancer Wisconsin (Original) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5HP4Z\n\nlibrary(mlbench)\nlibrary(ggplot2)"
   },
   {
     "objectID": "posts/breast-cancer-r/index.html#what-i-did",
@@ -116,14 +116,14 @@
     "href": "posts/r-and-python/index.html",
     "title": "Breast Cancer Data in Python and R Together",
     "section": "",
-    "text": "This post uses the Breast Cancer Wisconsin (Diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn’s load_breast_cancer().\nWolberg, W., Mangasarian, O., Street, N., & Street, W. (1995). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B"
+    "text": "This post uses the Breast Cancer Wisconsin (Diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn’s load_breast_cancer().\nWolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B"
   },
   {
     "objectID": "posts/r-and-python/index.html#data-source",
     "href": "posts/r-and-python/index.html#data-source",
     "title": "Breast Cancer Data in Python and R Together",
     "section": "",
-    "text": "This post uses the Breast Cancer Wisconsin (Diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn’s load_breast_cancer().\nWolberg, W., Mangasarian, O., Street, N., & Street, W. (1995). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B"
+    "text": "This post uses the Breast Cancer Wisconsin (Diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn’s load_breast_cancer().\nWolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B"
   },
   {
     "objectID": "posts/r-and-python/index.html#what-i-did",

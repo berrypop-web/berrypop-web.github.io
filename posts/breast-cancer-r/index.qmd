@@ -6,9 +6,9 @@ author: Lise Gong
 
 ## Data Source
 
-This blog uses the [Breast Cancer Wisconsin (Original)](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original) from the UCI Machine Learning Repository (CC BY 4.0), loaded through the `mlbench` R package. Each row is a tumor sample score from 1 to 10 on nine cell characteristics.
+This post uses the [Breast Cancer Wisconsin (Original)](https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through the `mlbench` R package. Each row is a tumor sample, scored from 1 to 10 on nine cell characteristics.
 
-APA Citation: Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) \[Dataset\]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B.
+Wolberg, W. (1990). Breast Cancer Wisconsin (Original) \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C5HP4Z>
 
 ```{r}
 #| label: setup
