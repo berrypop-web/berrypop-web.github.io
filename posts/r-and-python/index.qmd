@@ -1,0 +1,91 @@
+---
+title: "Breast Cancer Data in Python and R Together"
+author: Lise Gong
+date: 2026-09-28
+description: "Loading data in Python, modelling it in R, and checking the result back in Python, all in one post."
+---
+
+## Data Source
+
+This post uses the [Breast Cancer Wisconsin (Diagnostic)](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) dataset from the UCI Machine Learning Repository (CC BY 4.0), loaded through scikit-learn's `load_breast_cancer()`.
+
+Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1995). Breast Cancer Wisconsin (Diagnostic) \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C5DW2B>
+
+## What I Did
+
+This post runs Python and R in the same document using the `reticulate` package. Objects cross between the languages in both directions:
+
+1.  **Python → R:** Python loads the data, and R reads it as `py$bc`.
+2.  **R → Python:** R fits a model and computes a cutoff, and Python reads it as `r.threshold`.
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+library(reticulate)
+library(ggplot2)
+```
+
+### Step 1: Load the data in Python
+
+I load the data with scikit-learn and keep only the two columns I need. I rename `mean radius` to `radius` so the name has no spaces when it reaches R.
+
+```{python}
+from sklearn.datasets import load_breast_cancer
+
+data = load_breast_cancer(as_frame=True)
+bc = data.frame[["mean radius", "target"]].rename(columns={"mean radius": "radius"})
+# target is 0 for malignant and 1 for benign; replace the numbers with names
+bc["diagnosis"] = bc["target"].map(dict(enumerate(data.target_names)))
+bc = bc.drop(columns="target")
+bc.head()
+```
+
+### Step 2: Plot and model the data in R
+
+R reads the pandas DataFrame from Python as `py$bc`, which arrives as an ordinary R data frame.
+
+```{r}
+bc <- py$bc
+str(bc)
+```
+
+```{r}
+#| label: fig-radius-density
+#| fig-cap: "Distribution of mean nucleus radius by diagnosis. Data loaded in Python, plotted in R."
+ggplot(bc, aes(x = radius, fill = diagnosis)) +
+  geom_density(alpha = 0.5) +
+  labs(
+    title = "Mean nucleus radius by diagnosis",
+    x = "Mean radius",
+    y = "Density",
+    fill = "Diagnosis"
+  )
+```
+
+Next, I fit a logistic regression that predicts whether a sample is malignant from its radius. The radius where the predicted probability of malignancy reaches 50% is `-intercept / slope`, which I save as `threshold`.
+
+```{r}
+bc$malignant <- bc$diagnosis == "malignant"
+model <- glm(malignant ~ radius, data = bc, family = binomial)
+threshold <- -coef(model)[["(Intercept)"]] / coef(model)[["radius"]]
+threshold
+```
+
+### Step 3: Use the R result back in Python
+
+Python reads the cutoff from R as `r.threshold` and uses it to classify every sample. I then check how often that one-number rule matches the real diagnosis.
+
+```{python}
+threshold = r.threshold
+predicted = bc["radius"].apply(lambda x: "malignant" if x >= threshold else "benign")
+accuracy = (predicted == bc["diagnosis"]).mean()
+print(f"Cutoff from R: {threshold:.2f}")
+print(f"Accuracy of the cutoff rule: {accuracy:.1%}")
+```
+
+## What I Found
+
+In @fig-radius-density, malignant samples sit toward larger radii, with some overlap in the middle. The logistic regression in R puts the 50% cutoff at a mean radius of about `r round(threshold, 1)`. Using only that cutoff, the rule applied in Python classifies `r round(py$accuracy * 100, 1)`% of samples correctly.
+
+Radius alone is a strong signal, but the overlap in the plot shows why it is not enough on its own: the samples closest to the cutoff are the ones a single measurement gets wrong.

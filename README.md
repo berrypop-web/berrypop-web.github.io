@@ -1,6 +1,6 @@
 # berrypop-web.github.io
 
-My personal website and blog, built with Quarto. It includes one personal blog post documenting my first week in MDS, and two computational posts analyzing breast cancer data: one in Python and one in R.
+My personal website and blog, built with Quarto. It includes one personal blog post documenting my first week in MDS, and two computational posts analyzing breast cancer data (one in Python and one in R), and a bonus post that passes data between R and Python in one document.
 
 ## Requirements
 
@@ -40,6 +40,8 @@ If asked whether to proceed, type `y`.
 ``` bash
    uv run quarto render
 ```
+
+Note: The bonus post runs Python from R using reticulate. `.Rprofile` points reticulate at the project's `.venv`, so step 2 must be done before rendering.
 
 Always render with `uv run` so Quarto uses the project's Python environment. If Python chunks use the wrong environment, delete the Quarto cache and render again:
 
